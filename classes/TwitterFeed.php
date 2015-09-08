@@ -68,13 +68,13 @@ class TwitterFeed extends Base implements iSocialFeed {
 		foreach ($response as $post) {
 
 			$p = array();
-			$p['id'] = $post->id;
+			$p['id'] = $post->id_str;
 			$p['message'] = $post->text;
 			$p['link'] = 'https://www.twitter.com/' . $post->user->screen_name;
 			$p['date_added'] = $date_added;
 			$p['date_created'] = strtotime($post->created_at);
 
-			$since_ids[] = $post->id;
+			$since_ids[] = $post->id_str;
 			array_push($data, $p);
 		}
 
